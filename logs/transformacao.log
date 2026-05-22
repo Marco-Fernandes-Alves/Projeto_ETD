@@ -1,0 +1,55 @@
+2026-05-20 11:43:46,920 - INFO - 🚀 INICIANDO O PIPELINE DE TRANSFORMAÇÃO DE DADOS (SEMANA 2) 🚀
+2026-05-20 11:43:46,920 - INFO - ==============================================================
+2026-05-20 11:43:46,920 - INFO - 
+--- PASSO 1: Limpeza e Padronização de Indicadores & Ações ---
+2026-05-20 11:43:46,920 - INFO - A processar indicadores de retalho (FRED)...
+2026-05-20 11:43:46,931 - INFO - Dados macroeconómicos FRED limpos e guardados em: data/processados/indicadores_retalho_limpos.csv
+2026-05-20 11:43:46,931 - INFO - A processar dados de marcas de moda (Tiingo)...
+2026-05-20 11:43:46,934 - INFO - Dados de mercado da marca IDEXY limpos e guardados em: data/processados/mercado_idexy_limpo.csv
+2026-05-20 11:43:46,937 - INFO - Dados de mercado da marca NKE limpos e guardados em: data/processados/mercado_nke_limpo.csv
+2026-05-20 11:43:46,941 - INFO - Dados de mercado da marca LVMUY limpos e guardados em: data/processados/mercado_lvmuy_limpo.csv
+2026-05-20 11:43:46,941 - INFO - 
+--- PASSO 2: Processamento de Sentimento das Notícias ---
+2026-05-20 11:43:46,941 - INFO - A analisar o sentimento das notícias...
+2026-05-20 11:43:46,946 - INFO - Sentimento diário processado e guardado em: data/processados/sentimento_diario_limpo.csv
+2026-05-20 11:43:46,946 - INFO - 
+--- PASSO 3: Fusão e Interpolação na Camada Gold ---
+2026-05-20 11:43:46,946 - INFO - A iniciar integração da Camada Gold (Moda & Mercados)...
+2026-05-20 11:43:46,951 - INFO - Intervalo temporal do pipeline Gold: 2024-12-31 até 2026-05-14
+2026-05-20 11:43:46,961 - INFO - Dataset FINAL Gold gerado com SUCESSO: 343 registos integrados.
+2026-05-20 11:43:46,961 - INFO - Ficheiro de saída: data/processados/ouro_analise_moda.csv
+2026-05-20 11:43:46,961 - INFO - 
+Amostra dos dados finais integrados (Gold):
+2026-05-20 11:43:46,967 - INFO - 
+--- PASSO 4: Executando Suite de Qualidade (Validador) ---
+2026-05-20 11:43:46,967 - INFO - ==================================================
+2026-05-20 11:43:46,967 - INFO - 🔍 INICIANDO SUITE DE VALIDAÇÃO DE QUALIDADE DE DADOS
+2026-05-20 11:43:46,967 - INFO - ==================================================
+2026-05-20 11:43:46,967 - INFO - 
+--- 1. Validação dos Indicadores FRED (Staging) ---
+2026-05-20 11:43:46,968 - INFO -  Unicidade: Datas de indicadores FRED são 100% únicas.
+2026-05-20 11:43:46,977 - INFO -  Schema & Tipos: 412 registos FRED validados com sucesso via Pydantic.
+2026-05-20 11:43:46,977 - INFO - 
+--- 2. Validação das Ações Tiingo (Staging) ---
+2026-05-20 11:43:46,978 - INFO -  Unicidade NKE: Datas das ações são únicas.
+2026-05-20 11:43:46,987 - INFO -  Schema & Tipos NKE: 343 registos validados com sucesso.
+2026-05-20 11:43:46,988 - INFO -  Unicidade LVMUY: Datas das ações são únicas.
+2026-05-20 11:43:46,994 - INFO -  Schema & Tipos LVMUY: 343 registos validados com sucesso.
+2026-05-20 11:43:46,995 - INFO -  Unicidade IDEXY: Datas das ações são únicas.
+2026-05-20 11:43:47,001 - INFO -  Schema & Tipos IDEXY: 343 registos validados com sucesso.
+2026-05-20 11:43:47,001 - INFO - 
+--- 3. Validação de Sentimento Diário (Staging) ---
+2026-05-20 11:43:47,002 - INFO -  Unicidade: Datas dos scores de sentimento são únicas.
+2026-05-20 11:43:47,003 - INFO -  Schema & Tipos: 22 registos de sentimento validados com sucesso.
+2026-05-20 11:43:47,003 - INFO - 
+--- 4. Validação do Dataset Integrado (Camada Gold) ---
+2026-05-20 11:43:47,004 - INFO -  Unicidade: Datas de negócios da Camada Gold são estritamente únicas.
+2026-05-20 11:43:47,014 - INFO -  Schema & Sanidade Gold: 343 registos consolidados validados e aprovados.
+2026-05-20 11:43:47,015 - INFO - 
+==================================================
+2026-05-20 11:43:47,015 - INFO - ✅ RESULTADO DO PIPELINE: APROVADO! Todos os dados cumprem os critérios de qualidade.
+2026-05-20 11:43:47,015 - INFO - ==================================================
+2026-05-20 11:43:47,015 - INFO - 
+==============================================================
+2026-05-20 11:43:47,015 - INFO - 🎉 PIPELINE DA SEMANA 2 CONCLUÍDO COM SUCESSO! 🎉
+2026-05-20 11:43:47,015 - INFO - ==============================================================
