@@ -59,36 +59,30 @@ O repositório está estruturado de forma simétrica e modular por semanas para 
 
 ```text
 TF_ETD/
-├── .env                        # Variáveis de ambiente com chaves de API locais
+├── .env.example                # Variáveis de ambiente com chaves de API locais
 ├── README.md                   # Documentação consolidada (Dicionário e Relatório Final)
-├── REGISTO_IA.md               # Registo de transparência de uso de Inteligência Artificial
 ├── requirements.txt            # Dependências globais do repositório
-├── run_pipeline.py             # Script de orquestração de execução global
 │
 ├── Semana_1/                   # EXTRAÇÃO & INGESTÃO (Bronze Layer)
 │   ├── data/                   # Ficheiros CSV puros importados das APIs
 │   ├── outputs/extracao.log    # Registo de logs de chamadas
-│   ├── src/                    # Scripts de ingestão (FRED, Tiingo, NewsAPI) e validação
-│   └── requirements.txt        # Dependências do módulo 1
+│   └── src/                    # Scripts de ingestão (FRED, Tiingo, NewsAPI) e validação
 │
 ├── Semana_2/                   # TRANSFORMAÇÃO (Silver & Gold Layer)
 │   ├── outputs/                # Ficheiros limpos, logs e dataset Gold (ouro_analise_moda.csv)
 │   │   ├── relatorio_qualidade.md # Auditoria de dados via Pydantic
 │   │   └── transformacao.log   # Registo da execução da transformação e sentimento
-│   ├── src/                    # Limpeza, sentimento, interpolação e integrador Gold
-│   └── requirements.txt        # Dependências do módulo 2
+│   └── src/                    # Limpeza, sentimento, interpolação e integrador Gold
 │
 ├── Semana_3/                   # CARREGAMENTO RELACIONAL (SQLite Layer)
 │   ├── outputs/                # Base relacional final e relatórios pós-carga
 │   │   ├── moda_analytics.db   # SQLite preenchido sob Star Schema
 │   │   └── relatorio_valida_carga.md # Auditoria SQL e testes de FK/Nulos
-│   ├── src/                    # Converte o CSV Gold em tabelas SQLite e View consolidada
-│   └── requirements.txt        # Dependências do módulo 3
+│   └── src/                    # Converte o CSV Gold em tabelas SQLite e View consolidada
 │
 └── Semana_4/                   # VISUALIZAÇÃO (Presentation Layer)
     ├── src/app.py              # Aplicação do dashboard interativo Streamlit
-    ├── outputs/                # Base de dados local (cópia autónoma para o professor)
-    └── requirements.txt        # Dependências do dashboard (streamlit, plotly, statsmodels)
+    └── outputs/                # Base de dados local (cópia autónoma para o professor)
 ```
 
 ---
