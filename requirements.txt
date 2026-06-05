@@ -1,5 +1,11 @@
-python-dotenv
-requests
-pandas
-pydantic
-httpx
+python-dotenv       
+requests            
+httpx             
+pandas              
+pydantic             
+fastapi             
+uvicorn            
+streamlit          
+plotly            
+statsmodels         
+matplotlib
