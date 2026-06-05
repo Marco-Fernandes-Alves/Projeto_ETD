@@ -1,0 +1,15 @@
+2026-05-30 00:12:28,664 - INFO - A iniciar extração de Sentimentos & Notícias da Alpha Vantage API...
+2026-05-30 00:12:29,449 - WARNING - O feed de notícias da Alpha Vantage está vazio para os tickers especificados.
+2026-05-30 00:12:29,449 - INFO - A acionar backup offline resiliente (Smart Data Generator)...
+2026-05-30 00:12:29,449 - INFO - A executar simulação offline de sentimentos Alpha Vantage (Smart Data Generator)...
+2026-05-30 00:12:29,452 - INFO - Sucesso: 15 sentimentos simulados de alta fidelidade salvos em data/noticias_alpha_vantage_30-05-2026.csv
+2026-05-30 00:12:34,344 - INFO - A iniciar extração de Retalho: RSCCAS (Vendas a Retalho: Vestuário e Acessórios)
+2026-05-30 00:12:35,804 - INFO - Sucesso: 412 registos guardados em data/fred_rsccas_30-05-2026.csv
+2026-05-30 00:12:35,804 - INFO - A iniciar extração de Retalho: CPIAPPSL (Índice de Preços ao Consumidor: Vestuário (Ajustado))
+2026-05-30 00:12:36,210 - INFO - Sucesso: 952 registos guardados em data/fred_cpiappsl_30-05-2026.csv
+2026-05-30 00:12:39,155 - INFO - A extrair dados de mercado para marca: NKE
+2026-05-30 00:12:41,052 - INFO -  Sucesso: 344 registos de NKE guardados.
+2026-05-30 00:12:41,053 - INFO - A extrair dados de mercado para marca: IDEXY
+2026-05-30 00:12:44,401 - INFO -  Sucesso: 344 registos de IDEXY guardados.
+2026-05-30 00:12:44,402 - INFO - A extrair dados de mercado para marca: LVMUY
+2026-05-30 00:12:45,656 - INFO -  Sucesso: 344 registos de LVMUY guardados.

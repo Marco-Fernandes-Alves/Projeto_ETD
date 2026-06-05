@@ -1,0 +1,54 @@
+2026-05-30 00:18:24,752 - INFO - INICIANDO O PIPELINE DE TRANSFORMAÇÃO DE DADOS
+2026-05-30 00:18:24,752 - INFO - ==============================================================
+2026-05-30 00:18:24,752 - INFO - PASSO 1: Limpeza e Padronização de Indicadores & Ações
+2026-05-30 00:18:24,752 - INFO - A processar indicadores de retalho (FRED)...
+2026-05-30 00:18:24,766 - INFO - Dados macroeconómicos FRED limpos e guardados em: outputs/indicadores_retalho_limpos.csv
+2026-05-30 00:18:24,767 - INFO - A processar dados de marcas de moda (Tiingo)...
+2026-05-30 00:18:24,770 - INFO - Dados de mercado da marca IDEXY limpos e guardados em: outputs/mercado_idexy_limpo.csv
+2026-05-30 00:18:24,773 - INFO - Dados de mercado da marca NKE limpos e guardados em: outputs/mercado_nke_limpo.csv
+2026-05-30 00:18:24,775 - INFO - Dados de mercado da marca IDEXY limpos e guardados em: outputs/mercado_idexy_limpo.csv
+2026-05-30 00:18:24,778 - INFO - Dados de mercado da marca NKE limpos e guardados em: outputs/mercado_nke_limpo.csv
+2026-05-30 00:18:24,781 - INFO - Dados de mercado da marca LVMUY limpos e guardados em: outputs/mercado_lvmuy_limpo.csv
+2026-05-30 00:18:24,784 - INFO - Dados de mercado da marca LVMUY limpos e guardados em: outputs/mercado_lvmuy_limpo.csv
+2026-05-30 00:18:24,784 - INFO - PASSO 2: Processamento de Sentimento das Notícias
+2026-05-30 00:18:24,784 - INFO - A analisar o sentimento das notícias...
+2026-05-30 00:18:24,785 - ERROR - Erro ao ler/processar ficheiro noticias_alpha_vantage_29-05-2026.csv: No columns to parse from file
+2026-05-30 00:18:24,786 - INFO - Ficheiro clássico noticias_mercado_luxo_15-05-2026.csv detetado. A enriquecer com NLP léxico clássico...
+2026-05-30 00:18:24,790 - INFO - Ficheiro clássico noticias_tendencias_moda_15-05-2026.csv detetado. A enriquecer com NLP léxico clássico...
+2026-05-30 00:18:24,793 - INFO - Ficheiro clássico noticias_sustentabilidade_moda_15-05-2026.csv detetado. A enriquecer com NLP léxico clássico...
+2026-05-30 00:18:24,797 - INFO - A aplicar cálculo de médias ponderadas de sentimento segmentado por marca...
+2026-05-30 00:18:24,817 - INFO - Sentimento diário segmentado por marcas processado e guardado em: outputs/sentimento_diario_limpo.csv
+2026-05-30 00:18:24,817 - INFO - PASSO 3: Fusão e Interpolação na Camada Gold
+2026-05-30 00:18:24,817 - INFO - A iniciar integração da Camada Gold (Moda & Mercados)...
+2026-05-30 00:18:24,822 - INFO - Intervalo temporal do pipeline Gold: 2024-12-31 até 2026-05-29
+2026-05-30 00:18:24,832 - INFO - Dataset FINAL Gold gerado com SUCESSO: 353 registos integrados.
+2026-05-30 00:18:24,832 - INFO - Ficheiro de saída: outputs/ouro_analise_moda.csv
+2026-05-30 00:18:24,832 - INFO - 
+Amostra dos dados finais integrados (Gold):
+2026-05-30 00:18:24,841 - INFO - PASSO 4: Executando Suite de Qualidade (Validador)
+2026-05-30 00:18:24,841 - INFO - ==================================================
+2026-05-30 00:18:24,841 - INFO - INICIANDO SUITE DE VALIDAÇÃO DE QUALIDADE DE DADOS
+2026-05-30 00:18:24,841 - INFO - ==================================================
+2026-05-30 00:18:24,841 - INFO - Validação dos Indicadores FRED (Staging)
+2026-05-30 00:18:24,842 - INFO -  Unicidade: Datas de indicadores FRED são 100% únicas.
+2026-05-30 00:18:24,847 - INFO -  Schema & Tipos: 412 registos FRED validados com sucesso via Pydantic.
+2026-05-30 00:18:24,847 - INFO - Validação das Ações Tiingo (Staging)
+2026-05-30 00:18:24,848 - INFO -  Unicidade NKE: Datas das ações são únicas.
+2026-05-30 00:18:24,853 - INFO -  Schema & Tipos NKE: 343 registos validados com sucesso.
+2026-05-30 00:18:24,854 - INFO -  Unicidade LVMUY: Datas das ações são únicas.
+2026-05-30 00:18:24,859 - INFO -  Schema & Tipos LVMUY: 344 registos validados com sucesso.
+2026-05-30 00:18:24,859 - INFO -  Unicidade IDEXY: Datas das ações são únicas.
+2026-05-30 00:18:24,864 - INFO -  Schema & Tipos IDEXY: 343 registos validados com sucesso.
+2026-05-30 00:18:24,864 - INFO - Validação de Sentimento Diário (Staging)
+2026-05-30 00:18:24,865 - INFO -  Unicidade: Datas dos scores de sentimento são únicas.
+2026-05-30 00:18:24,865 - INFO - Schema & Tipos: 23 registos de sentimento validados com sucesso.
+2026-05-30 00:18:24,865 - INFO - Validação do Dataset Integrado (Camada Gold)
+2026-05-30 00:18:24,866 - INFO - Unicidade: Datas de negócios da Camada Gold são estritamente únicas.
+2026-05-30 00:18:24,867 - INFO - INFO: Detetados valores nulos nas colunas: ['nike_close', 'nike_volume', 'lvmh_close', 'lvmh_volume', 'inditex_close', 'inditex_volume'] (Serão validados via Pydantic como opcionais).
+2026-05-30 00:18:24,875 - INFO - Schema & Sanidade Gold: 353 registos consolidados validados e aprovados.
+2026-05-30 00:18:24,876 - INFO - ==================================================
+2026-05-30 00:18:24,876 - INFO - RESULTADO DO PIPELINE: APROVADO! Todos os dados cumprem os critérios de qualidade.
+2026-05-30 00:18:24,876 - INFO - ==================================================
+2026-05-30 00:18:24,876 - INFO - ==============================================================
+2026-05-30 00:18:24,876 - INFO - PIPELINE DA SEMANA 2 CONCLUÍDO COM SUCESSO!
+2026-05-30 00:18:24,876 - INFO - ==============================================================

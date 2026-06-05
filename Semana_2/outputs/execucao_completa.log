@@ -1,0 +1,77 @@
+2026-06-05 19:18:37,155 - INFO - ==============================================================
+2026-06-05 19:18:37,155 - INFO - 🚀 INICIANDO EXECUÇÃO GLOBAL INTEGRADA DO PIPELINE ETL
+2026-06-05 19:18:37,155 - INFO - ==============================================================
+2026-06-05 19:18:37,155 - INFO - 
+[FASE 1] - Limpeza e normalização de dados ( FRED & Tiingo )...
+2026-06-05 19:18:37,155 - INFO - A processar indicadores de retalho (FRED)...
+2026-06-05 19:18:37,168 - INFO - Dados macroeconómicos FRED limpos e guardados em: Semana_2/outputs/indicadores_retalho_limpos.csv
+2026-06-05 19:18:37,168 - INFO - A processar dados de marcas de moda (Tiingo)...
+2026-06-05 19:18:37,172 - INFO - Dados de mercado da marca IDEXY limpos e guardados em: Semana_2/outputs/mercado_idexy_limpo.csv
+2026-06-05 19:18:37,175 - INFO - Dados de mercado da marca NKE limpos e guardados em: Semana_2/outputs/mercado_nke_limpo.csv
+2026-06-05 19:18:37,178 - INFO - Dados de mercado da marca IDEXY limpos e guardados em: Semana_2/outputs/mercado_idexy_limpo.csv
+2026-06-05 19:18:37,183 - INFO - Dados de mercado da marca NKE limpos e guardados em: Semana_2/outputs/mercado_nke_limpo.csv
+2026-06-05 19:18:37,190 - INFO - Dados de mercado da marca LVMUY limpos e guardados em: Semana_2/outputs/mercado_lvmuy_limpo.csv
+2026-06-05 19:18:37,197 - INFO - Dados de mercado da marca LVMUY limpos e guardados em: Semana_2/outputs/mercado_lvmuy_limpo.csv
+2026-06-05 19:18:37,198 - INFO - 
+[FASE 2] - Análise de sentimento diário léxico de notícias...
+2026-06-05 19:18:37,198 - INFO - A analisar o sentimento das notícias...
+2026-06-05 19:18:37,201 - INFO - Ficheiro clássico noticias_mercado_luxo_15-05-2026.csv detetado. A enriquecer com NLP léxico clássico...
+2026-06-05 19:18:37,205 - INFO - Ficheiro clássico noticias_tendencias_moda_15-05-2026.csv detetado. A enriquecer com NLP léxico clássico...
+2026-06-05 19:18:37,208 - INFO - Ficheiro clássico noticias_sustentabilidade_moda_15-05-2026.csv detetado. A enriquecer com NLP léxico clássico...
+2026-06-05 19:18:37,213 - INFO - A aplicar cálculo de médias ponderadas de sentimento segmentado por marca...
+2026-06-05 19:18:37,234 - INFO - Sentimento diário segmentado por marcas processado e guardado em: Semana_2/outputs/sentimento_diario_limpo.csv
+2026-06-05 19:18:37,235 - INFO - 
+[FASE 3] - Integração temporal e interpolação inteligente (Camada Gold)...
+2026-06-05 19:18:37,235 - INFO - A iniciar integração da Camada Gold (Moda & Mercados)...
+2026-06-05 19:18:37,240 - INFO - Intervalo temporal do pipeline Gold: 2024-12-31 até 2026-05-29
+2026-06-05 19:18:37,251 - INFO - Dataset FINAL Gold gerado com SUCESSO: 353 registos integrados.
+2026-06-05 19:18:37,251 - INFO - Ficheiro de saída: Semana_2/outputs/ouro_analise_moda.csv
+2026-06-05 19:18:37,252 - INFO - 
+Amostra dos dados finais integrados (Gold):
+2026-06-05 19:18:37,258 - INFO - 
+[FASE 4] - Suite automatizada de Data Quality na Semana 2...
+2026-06-05 19:18:37,258 - INFO - ==================================================
+2026-06-05 19:18:37,258 - INFO - INICIANDO SUITE DE VALIDAÇÃO DE QUALIDADE DE DADOS
+2026-06-05 19:18:37,258 - INFO - ==================================================
+2026-06-05 19:18:37,258 - INFO - Validação dos Indicadores FRED (Staging)
+2026-06-05 19:18:37,259 - INFO -  Unicidade: Datas de indicadores FRED são 100% únicas.
+2026-06-05 19:18:37,266 - INFO -  Schema & Tipos: 412 registos FRED validados com sucesso via Pydantic.
+2026-06-05 19:18:37,266 - INFO - Validação das Ações Tiingo (Staging)
+2026-06-05 19:18:37,267 - INFO -  Unicidade NKE: Datas das ações são únicas.
+2026-06-05 19:18:37,272 - INFO -  Schema & Tipos NKE: 343 registos validados com sucesso.
+2026-06-05 19:18:37,273 - INFO -  Unicidade LVMUY: Datas das ações são únicas.
+2026-06-05 19:18:37,279 - INFO -  Schema & Tipos LVMUY: 344 registos validados com sucesso.
+2026-06-05 19:18:37,280 - INFO -  Unicidade IDEXY: Datas das ações são únicas.
+2026-06-05 19:18:37,285 - INFO -  Schema & Tipos IDEXY: 343 registos validados com sucesso.
+2026-06-05 19:18:37,285 - INFO - Validação de Sentimento Diário (Staging)
+2026-06-05 19:18:37,286 - INFO -  Unicidade: Datas dos scores de sentimento são únicas.
+2026-06-05 19:18:37,287 - INFO - Schema & Tipos: 23 registos de sentimento validados com sucesso.
+2026-06-05 19:18:37,287 - INFO - Validação do Dataset Integrado (Camada Gold)
+2026-06-05 19:18:37,288 - INFO - Unicidade: Datas de negócios da Camada Gold são estritamente únicas.
+2026-06-05 19:18:37,288 - INFO - INFO: Detetados valores nulos nas colunas: ['nike_close', 'nike_volume', 'lvmh_close', 'lvmh_volume', 'inditex_close', 'inditex_volume'] (Serão validados via Pydantic como opcionais).
+2026-06-05 19:18:37,298 - INFO - Schema & Sanidade Gold: 353 registos consolidados validados e aprovados.
+2026-06-05 19:18:37,299 - INFO - ==================================================
+2026-06-05 19:18:37,299 - INFO - RESULTADO DO PIPELINE: APROVADO! Todos os dados cumprem os critérios de qualidade.
+2026-06-05 19:18:37,299 - INFO - ==================================================
+2026-06-05 19:18:37,299 - INFO - 
+[FASE 5] - Modelagem multidimensional (Star Schema) e Ingestão na Semana 3...
+2026-06-05 19:18:37,299 - INFO - A carregar dados a partir de: Semana_2/outputs/ouro_analise_moda.csv
+2026-06-05 19:18:37,302 - INFO - A criar tabelas do Star Schema no SQLite...
+2026-06-05 19:18:37,325 - INFO - Tabelas, índices e view analítica criados do zero e prontos para carga!
+2026-06-05 19:18:37,325 - INFO - A povoar dim_tempo...
+2026-06-05 19:18:37,330 - INFO - A povoar dim_macroeconomia...
+2026-06-05 19:18:37,332 - INFO - A povoar dim_sentimento...
+2026-06-05 19:18:37,335 - INFO - A povoar facto_mercado...
+2026-06-05 19:18:37,339 - INFO - Carregamento de dados concluído com sucesso!
+2026-06-05 19:18:37,341 - INFO - Relatório de validação pós-carga da Semana 3 gerado em: Semana_3/outputs/relatorio_valida_carga.md
+2026-06-05 19:18:37,341 - INFO - 
+[FASE 6] - Sincronização da base de dados para o Dashboard da Semana 4...
+2026-06-05 19:18:37,342 - INFO - ✅ Sincronização concluída com sucesso!
+2026-06-05 19:18:37,342 - INFO - 
+==============================================================
+2026-06-05 19:18:37,342 - INFO - 🎉 PIPELINE GLOBAL INTEGRADO EXECUTADO COM SUCESSO!
+2026-06-05 19:18:37,342 - INFO - ==============================================================
+2026-06-05 19:18:37,342 - INFO - 
+👉 Para visualizar o Dashboard Analítico interativo, execute:
+2026-06-05 19:18:37,342 - INFO -    streamlit run Semana_4/src/app.py
+2026-06-05 19:18:37,342 - INFO - ==============================================================
